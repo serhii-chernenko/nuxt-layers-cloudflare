@@ -1,0 +1,32 @@
+{
+  "name": "@demo/app",
+  "type": "module",
+  "scripts": {
+    "dev:cleanup": "nuxi cleanup",
+    "dev:prepare": "nuxt prepare",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "upgrade": "nuxi upgrade --force",
+    "cf-typegen": "wrangler types -c dist/_worker.js/wrangler.json",
+    "lint": "eslint .",
+    "format": "eslint --fix ."
+  },
+  "dependencies": {
+    "@demo/cloudflare": "file:../../integrations/cloudflare",
+    "@demo/data": "file:../../layers/core/data",
+    "@demo/ui": "file:../../layers/ui",
+    "@nuxt/eslint": "latest",
+    "eslint": "latest",
+    "nuxt": "latest",
+    "typescript": "latest",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "vite-plugin-eslint2": "latest",
+    "wrangler": "^4.3.0"
+  }
+}

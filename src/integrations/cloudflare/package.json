@@ -1,0 +1,21 @@
+{
+  "name": "@demo/cloudflare",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "dev:prepare": "nuxt prepare .playground"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "latest",
+    "nitro-cloudflare-dev": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "nuxt": "latest",
+    "typescript": "latest",
+    "vite-plugin-eslint2": "latest",
+    "vue": "latest"
+  }
+} 
