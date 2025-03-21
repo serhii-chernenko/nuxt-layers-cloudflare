@@ -1,0 +1,62 @@
+name: Deploy the project to Cloudflare Pages
+
+on:
+  push:
+    branches: ['main']
+    
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: "Deployment"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Cache NPM
+        id: npm-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            ~/.npm
+          key: npm-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-cache-${{ runner.os }}-
+
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Prepare layers
+        run: npm run dev:prepare
+
+      - name: Build application
+        run: npm run build:app
+
+      - name: Deploy to Cloudlfare Pages via Wrangler
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          wranglerVersion: ${{ vars.CLOUDFLARE_WRANGLER_VERSION }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy src/apps/app/dist --project-name=${{ github.event.repository.name }}
+
+      - name: Print deployed URL
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: echo $DEPLOYMENT_URL

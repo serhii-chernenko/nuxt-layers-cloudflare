@@ -1,0 +1,36 @@
+{
+  "name": "@demo/data",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "dev:cleanup": "nuxi cleanup .playground",
+    "dev": "nuxi dev .playground",
+    "dev:prepare": "nuxt prepare .playground",
+    "build": "nuxt build .playground",
+    "generate": "nuxt generate .playground",
+    "preview": "nuxt preview .playground",
+    "upgrade": "nuxi upgrade --force",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "cf-typegen": "wrangler types -c ../../../apps/app/dist/_worker.js/wrangler.json",
+    "lint": "eslint .",
+    "format": "eslint --fix ."
+  },
+  "dependencies": {
+    "@demo/cloudflare": "file:../../../integrations/cloudflare",
+    "@demo/ui": "file:../../ui",
+    "@nuxt/eslint": "latest",
+    "drizzle-orm": "latest",
+    "drizzle-kit": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "nuxt": "latest",
+    "typescript": "latest",
+    "vite-plugin-eslint2": "latest",
+    "vue": "latest"
+  }
+}
