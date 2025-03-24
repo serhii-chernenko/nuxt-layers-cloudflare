@@ -1,9 +1,8 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   try {
-    return await useDatabaseItems(event).insert(tableItems)
+    return await useDatabaseItems().insert(tableItems)
       .values({
-        name: 'Item 1',
-        createdAt: new Date(),
+        name: 'Item',
       })
       .returning()
       .get()

@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
   try {
-    await useDatabaseItems(event).delete(tableItems)
+    await useDatabaseItems().delete(tableItems)
 
     setResponseStatus(event, 204, 'All items deleted')
   } catch (exception: any) {

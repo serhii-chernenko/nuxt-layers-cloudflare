@@ -1,6 +1,6 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   try {
-    return await useDatabaseItems(event).select().from(tableItems).all()
+    return await useDatabaseItems().select().from(tableItems).all()
   } catch (exception: any) {
     // eslint-disable-next-line no-console
     console.error(exception)

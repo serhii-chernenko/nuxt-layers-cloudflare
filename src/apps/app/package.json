@@ -15,7 +15,6 @@
     "format": "eslint --fix ."
   },
   "dependencies": {
-    "@demo/cloudflare": "file:../../integrations/cloudflare",
     "@demo/data": "file:../../layers/core/data",
     "@demo/ui": "file:../../layers/ui",
     "@nuxt/eslint": "latest",
@@ -27,6 +26,6 @@
   },
   "devDependencies": {
     "vite-plugin-eslint2": "latest",
-    "wrangler": "^4.3.0"
+    "wrangler": "^4.4.0"
   }
 }

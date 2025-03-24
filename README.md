@@ -9,6 +9,19 @@ A similar repository but without the layers architecture is available here:
 
 It has the same issues as the current one.
 
+## Updates
+
+### Fix for [Issue 1](#issue-1)
+
+PR with fixes to the Nitro repository:
+https://github.com/nitrojs/nitro/pull/3245
+
+It allows to set a custom path of auto-generated `wrangler.json` file.
+
+### Fix for [Issue 2](#issue-2) and [Issue 3](#issue-3)
+
+https://github.com/nitrojs/nitro-cloudflare-dev/issues/57#issuecomment-2747722537
+
 ## Useful links
 
 - [Nuxt Cloudflare Pages docs](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nuxt-site/)
@@ -68,6 +81,10 @@ The output:
 ```
 So, I'm really confused, why it says that the `items` table already exists but when I try to run development it says the opposite.
 
+#### Solution
+
+https://github.com/nitrojs/nitro/pull/3245
+
 ### Issue 2
 
 URL: https://nuxt-layers-cloudflare.pages.dev/
@@ -76,6 +93,10 @@ Result is the same as locally — "Internal server error" but in the production 
 ![image](https://github.com/user-attachments/assets/a163c2b8-0ed6-4031-bbcf-7b25ed738401)
 
 Let's go the next step to debug the issue.
+
+#### Solution
+
+https://github.com/nitrojs/nitro-cloudflare-dev/issues/57#issuecomment-2747722537
 
 ### Issue 3
 
@@ -90,6 +111,10 @@ Error when the page is opened in the browser by pressing `b`:
 ```
 ✘ [ERROR] TypeError: Cannot read properties of undefined (reading 'env') at useDatabaseItems
 ```
+
+#### Solution
+
+https://github.com/nitrojs/nitro-cloudflare-dev/issues/57#issuecomment-2747722537
 
 ## Short summary
 

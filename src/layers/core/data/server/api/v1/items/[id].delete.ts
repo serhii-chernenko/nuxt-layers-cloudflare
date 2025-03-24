@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    await useDatabaseItems(event)
+    await useDatabaseItems()
       .delete(tableItems)
       .where(and(
         eq(tableItems.id, Number(params.data.id)),

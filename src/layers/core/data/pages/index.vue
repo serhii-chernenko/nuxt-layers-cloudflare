@@ -30,7 +30,6 @@
           >
             <span>{{ item.name }}</span>
             <button
-              v-if="false"
               type="button"
               title="Delete item"
               class="btn btn-xs btn-error btn-outline"

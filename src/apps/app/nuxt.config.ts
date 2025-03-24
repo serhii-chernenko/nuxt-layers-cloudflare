@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
   extends: [
-    '@demo/cloudflare',
     '@demo/ui',
     '@demo/data',
   ],
